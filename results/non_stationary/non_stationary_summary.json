@@ -1,0 +1,112 @@
+{
+  "case": "Non-Stationary Concept Drift (Pergeseran Koki 3 Fase)",
+  "n_steps": 1500,
+  "n_runs": 100,
+  "phases": [
+    {
+      "name": "Fase 1: Kejayaan RM Padang",
+      "step_until": 500,
+      "means": [
+        0.45,
+        0.25,
+        0.55,
+        0.88,
+        0.65,
+        0.5,
+        0.4,
+        0.52,
+        0.48,
+        0.7
+      ],
+      "best_arm": 3,
+      "best_name": "RM Padang (\u03bc=0.88)"
+    },
+    {
+      "name": "Fase 2: Koki Dibajak Bistro Western",
+      "step_until": 1000,
+      "means": [
+        0.45,
+        0.25,
+        0.55,
+        0.35,
+        0.65,
+        0.9,
+        0.4,
+        0.52,
+        0.48,
+        0.7
+      ],
+      "best_arm": 5,
+      "best_name": "Bistro Western (\u03bc=0.90)"
+    },
+    {
+      "name": "Fase 3: Tren Seafood Pesisir Viral",
+      "step_until": null,
+      "means": [
+        0.45,
+        0.25,
+        0.55,
+        0.5,
+        0.6,
+        0.55,
+        0.4,
+        0.52,
+        0.48,
+        0.92
+      ],
+      "best_arm": 9,
+      "best_name": "Seafood Pesisir (\u03bc=0.92)"
+    }
+  ],
+  "algorithms": {
+    "Sliding-Window TS (W=150) [Adaptif]": {
+      "rank": 1,
+      "total_reward_mean": 1200.3166068152752,
+      "total_reward_std": 6.188836600962773,
+      "cumulative_regret": 149.73819999999995,
+      "final_optimal_rate": 88.0
+    },
+    "Standard UCB1 (Statis)": {
+      "rank": 2,
+      "total_reward_mean": 1153.2473736907828,
+      "total_reward_std": 3.1486909758665806,
+      "cumulative_regret": 196.34599999999983,
+      "final_optimal_rate": 74.0
+    },
+    "Standard TS (Statis / Keras Kepala)": {
+      "rank": 3,
+      "total_reward_mean": 1150.5496071931511,
+      "total_reward_std": 13.758573579382608,
+      "cumulative_regret": 199.38210000000046,
+      "final_optimal_rate": 100.0
+    },
+    "Discounted TS (\u03b3=0.97) [Adaptif]": {
+      "rank": 4,
+      "total_reward_mean": 1072.3120969733782,
+      "total_reward_std": 6.848988085609364,
+      "cumulative_regret": 277.2677999999994,
+      "final_optimal_rate": 67.0
+    },
+    "Sliding-Window UCB (W=150) [Adaptif]": {
+      "rank": 5,
+      "total_reward_mean": 916.9454824957368,
+      "total_reward_std": 2.935808817491914,
+      "cumulative_regret": 432.7468999999993,
+      "final_optimal_rate": 26.0
+    },
+    "Discounted UCB (\u03b3=0.97) [Adaptif]": {
+      "rank": 6,
+      "total_reward_mean": 845.2268042473537,
+      "total_reward_std": 2.9832207431675477,
+      "cumulative_regret": 504.55430000000024,
+      "final_optimal_rate": 15.0
+    },
+    "Pure Random (Baseline)": {
+      "rank": 7,
+      "total_reward_mean": 792.1983725559834,
+      "total_reward_std": 7.42540102129775,
+      "cumulative_regret": 557.5007000000006,
+      "final_optimal_rate": 8.0
+    }
+  }
+}

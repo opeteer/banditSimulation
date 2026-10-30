@@ -13,6 +13,7 @@ from .environment import (
     CappedPoissonBandit,
 )
 from .non_stationary_env import DynamicNonStationaryBandit
+from .bob_youtube_env import BobYouTubeEnv
 from .non_stationary_agents import (
     DiscountedThompsonSamplingAgent,
     SlidingWindowThompsonSamplingAgent,
@@ -48,4 +49,6 @@ __all__ = [
     "Simulator",
     "SimulationResult",
     "BanditVisualizer",
+    "DynamicNonStationaryBandit",
+    "BobYouTubeEnv",
 ]
