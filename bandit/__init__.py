@@ -19,6 +19,7 @@ from .non_stationary_agents import (
     SlidingWindowThompsonSamplingAgent,
     DiscountedUCBAgent,
     SlidingWindowUCBAgent,
+    KalmanUCBAgent,
 )
 from .agents import (
     BanditAgent,
@@ -51,4 +52,5 @@ __all__ = [
     "BanditVisualizer",
     "DynamicNonStationaryBandit",
     "BobYouTubeEnv",
+    "KalmanUCBAgent",
 ]

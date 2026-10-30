@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Sliding-Window TS (W=120)",
+    "mean_reward": 1292.6398224097707,
+    "std_reward": 13.006923483944444,
+    "mean_regret": 189.0760338983051,
+    "std_regret": 11.1771611106806,
+    "final_optimal_pct": 68.63
+  },
+  {
+    "name": "Kalman-UCB (c=1.5, \u03c3_w=0.02)",
+    "mean_reward": 1450.329660782104,
+    "std_reward": 9.585758816147795,
+    "mean_regret": 31.567328813559325,
+    "std_regret": 7.26345532860304,
+    "final_optimal_pct": 73.58
+  },
+  {
+    "name": "Standard TS (Statis / Inerte)",
+    "mean_reward": 1084.8618612565424,
+    "std_reward": 21.502215893212004,
+    "mean_regret": 396.3469745762712,
+    "std_regret": 20.01822615931717,
+    "final_optimal_pct": 25.52
+  },
+  {
+    "name": "Pure Random (Baseline)",
+    "mean_reward": 842.4317302699343,
+    "std_reward": 12.60603320739841,
+    "mean_regret": 639.1638033898306,
+    "std_regret": 13.828348151325448,
+    "final_optimal_pct": 12.42
+  }
+]

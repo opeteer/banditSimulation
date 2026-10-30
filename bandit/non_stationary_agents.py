@@ -202,3 +202,70 @@ class SlidingWindowUCBAgent(BanditAgent):
     def reset(self) -> None:
         super().reset()
         self.window.clear()
+
+
+class KalmanUCBAgent(BanditAgent):
+    """
+    Kalman-UCB Agent (Dynamic Gaussian State-Space Bandit).
+    Memodelkan nilai harapan reward setiap arm sebagai keadaan tersembunyi (latent state)
+    yang bergerak acak kontinu: mu_k(t+1) = mu_k(t) + w_t, w_t ~ N(0, sigma_w^2).
+
+    Karakteristik Kunci:
+    - Predict: Varians ketidakpastian semua arm bertambah di setiap langkah:
+               sigma_k^2(t+1|t) = sigma_k^2(t) + sigma_w^2.
+    - Select: Memilih arm berdasarkan Upper Confidence Bound:
+              A_t = argmax_k [ mu_hat_k + c * sigma_k ].
+    - Update: Arm yang ditarik diperbarui menggunakan Kalman Gain:
+              K = prior_var / (prior_var + sigma_v^2).
+    """
+
+    def __init__(
+        self,
+        n_arms: int,
+        process_noise_std: float = 0.02,
+        observation_noise_std: float = 0.15,
+        c: float = 1.5,
+        initial_mean: float = 0.5,
+        initial_std: float = 0.5,
+        name: Optional[str] = None,
+        seed: Optional[int] = None,
+    ):
+        label = name or f"Kalman-UCB (c={c}, σ_w={process_noise_std})"
+        super().__init__(n_arms=n_arms, name=label, seed=seed)
+        self.process_noise_std = process_noise_std
+        self.observation_noise_std = observation_noise_std
+        self.sigma_w2 = float(process_noise_std ** 2)
+        self.sigma_v2 = float(observation_noise_std ** 2)
+        self.c = c
+        self.initial_mean = initial_mean
+        self.initial_std = initial_std
+        self.means = np.full(n_arms, initial_mean, dtype=float)
+        self.variances = np.full(n_arms, initial_std ** 2, dtype=float)
+
+    def select_arm(self) -> int:
+        # Predict step: Ketidakpastian SEMUA arm meningkat seiring berjalannya waktu
+        self.variances += self.sigma_w2
+
+        # Hitung UCB = mean + c * std
+        stds = np.sqrt(np.maximum(1e-8, self.variances))
+        ucb_values = self.means + self.c * stds
+        return self._argmax_random_tiebreak(ucb_values)
+
+    def update(self, arm: int, reward: float) -> None:
+        super().update(arm, reward)
+
+        # Update step: Kalman filter correction pada arm yang diobservasi
+        prior_var = self.variances[arm]
+        kalman_gain = prior_var / (prior_var + self.sigma_v2)
+
+        # Perbarui estimasi nilai harapan
+        self.means[arm] += kalman_gain * (reward - self.means[arm])
+
+        # Perbarui estimasi varians ketidakpastian
+        self.variances[arm] = (1.0 - kalman_gain) * prior_var
+
+    def reset(self) -> None:
+        super().reset()
+        self.means = np.full(self.n_arms, self.initial_mean, dtype=float)
+        self.variances = np.full(self.n_arms, self.initial_std ** 2, dtype=float)
+

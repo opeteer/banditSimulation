@@ -10,6 +10,7 @@ from bandit.non_stationary_agents import (
     SlidingWindowThompsonSamplingAgent,
     DiscountedUCBAgent,
     SlidingWindowUCBAgent,
+    KalmanUCBAgent,
 )
 
 
@@ -76,6 +77,7 @@ class TestNonStationaryAgents(unittest.TestCase):
             SlidingWindowThompsonSamplingAgent(n_arms=3, window_size=20, seed=42),
             DiscountedUCBAgent(n_arms=3, gamma=0.9, seed=42),
             SlidingWindowUCBAgent(n_arms=3, window_size=20, seed=42),
+            KalmanUCBAgent(n_arms=3, c=1.5, process_noise_std=0.02, seed=42),
         ]
         for agent in agents:
             for _ in range(30):
