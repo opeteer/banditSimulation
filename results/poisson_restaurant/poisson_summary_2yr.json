@@ -1,0 +1,99 @@
+{
+  "case": "Kasus Porsi Besar Poisson (Maks 7 Piring, 2 Tahun)",
+  "years": 2,
+  "total_days": 730,
+  "total_meals": 1460,
+  "max_cap": 7,
+  "n_runs": 100,
+  "optimal_restaurant": {
+    "name": "RM Padang Minang Asli [TERBAIK]",
+    "lambda": 6.0,
+    "category": "Rumah Makan Padang"
+  },
+  "expected_capped_rewards": [
+    1.998609421722513,
+    0.9999885032274345,
+    2.7885654592505373,
+    5.429958371299527,
+    3.915239396939635,
+    3.4586641150379007,
+    1.7993056810206896,
+    2.982805921067979,
+    2.395544528423324,
+    4.744519033354742
+  ],
+  "algorithms": {
+    "Gamma-Poisson Thompson Sampling": {
+      "total_plates_mean": 7750.51,
+      "total_plates_std": 188.9205385869943,
+      "cumulative_regret": 181.41569991880857,
+      "optimal_restaurant_percent": 95.0,
+      "mean_visits_per_restaurant": [
+        2.43,
+        1.56,
+        4.38,
+        1298.67,
+        17.73,
+        8.18,
+        2.2,
+        5.22,
+        3.77,
+        115.86
+      ]
+    },
+    "Poisson-UCB (c=1.0)": {
+      "total_plates_mean": 7741.32,
+      "total_plates_std": 152.18836223575045,
+      "cumulative_regret": 184.21009357561195,
+      "optimal_restaurant_percent": 97.0,
+      "mean_visits_per_restaurant": [
+        2.52,
+        1.56,
+        5.43,
+        1301.41,
+        17.14,
+        9.11,
+        2.55,
+        5.42,
+        3.89,
+        110.97
+      ]
+    },
+    "Poisson-UCB (c=\u221a2 \u2248 1.41)": {
+      "total_plates_mean": 7649.15,
+      "total_plates_std": 107.14059688092091,
+      "cumulative_regret": 280.482501290771,
+      "optimal_restaurant_percent": 93.0,
+      "mean_visits_per_restaurant": [
+        4.23,
+        2.19,
+        8.49,
+        1238.95,
+        32.61,
+        17.47,
+        3.78,
+        9.95,
+        6.12,
+        136.21
+      ]
+    },
+    "Pure Random (Baseline)": {
+      "total_plates_mean": 4464.32,
+      "total_plates_std": 77.54210211233635,
+      "cumulative_regret": 3465.8810096085235,
+      "optimal_restaurant_percent": 14.000000000000002,
+      "mean_visits_per_restaurant": [
+        148.43,
+        143.99,
+        146.93,
+        146.0,
+        145.5,
+        147.44,
+        144.5,
+        145.01,
+        144.65,
+        147.55
+      ]
+    }
+  }
+}

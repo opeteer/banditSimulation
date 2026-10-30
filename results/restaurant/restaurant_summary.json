@@ -1,0 +1,138 @@
+{
+  "case": "Kasus 10 Restoran Makan (1 Tahun, 2x Sehari = 730 Sesi)",
+  "days": 365,
+  "meals_per_day": 2,
+  "total_meals": 730,
+  "n_runs": 100,
+  "restaurants": [
+    {
+      "name": "Warung Makan Barokah (Prasmanan)",
+      "mean": 0.48,
+      "category": "Kaki Lima"
+    },
+    {
+      "name": "Kantin Kampus Murah",
+      "mean": 0.35,
+      "category": "Kantin"
+    },
+    {
+      "name": "Kedai Mie Ayam Mas Giri",
+      "mean": 0.62,
+      "category": "Kedai Tradisional"
+    },
+    {
+      "name": "RM Padang Minang Asli [TERBAIK]",
+      "mean": 0.88,
+      "category": "Rumah Makan Padang"
+    },
+    {
+      "name": "Bebek & Ayam Goreng Madura",
+      "mean": 0.74,
+      "category": "Khas Daerah"
+    },
+    {
+      "name": "Bistro Western & Steakhouse",
+      "mean": 0.7,
+      "category": "Modern Casual"
+    },
+    {
+      "name": "Fast Food Burger & Chicken",
+      "mean": 0.52,
+      "category": "Waralaba Cepat Saji"
+    },
+    {
+      "name": "Kedai Ramen & Gyoza",
+      "mean": 0.65,
+      "category": "Kuliner Asia"
+    },
+    {
+      "name": "Warung Pecel Lele Lamongan",
+      "mean": 0.58,
+      "category": "Tenda Malam"
+    },
+    {
+      "name": "Restoran Seafood Pesisir",
+      "mean": 0.78,
+      "category": "Seafood Segar"
+    }
+  ],
+  "optimal_restaurant": {
+    "name": "RM Padang Minang Asli [TERBAIK]",
+    "mean": 0.88,
+    "category": "Rumah Makan Padang"
+  },
+  "algorithms": {
+    "Thompson Sampling (Bayesian)": {
+      "total_satisfaction_mean": 610.7107160327201,
+      "total_satisfaction_std": 3.0114990055295094,
+      "cumulative_regret": 31.916500000000056,
+      "optimal_restaurant_percent": 96.0,
+      "mean_visits_per_restaurant": [
+        7.68,
+        5.07,
+        13.44,
+        571.73,
+        30.19,
+        21.39,
+        8.61,
+        15.92,
+        11.14,
+        44.83
+      ]
+    },
+    "UCB (c=\u221a0.5)": {
+      "total_satisfaction_mean": 551.7488430910795,
+      "total_satisfaction_std": 2.384745095402609,
+      "cumulative_regret": 90.40660000000004,
+      "optimal_restaurant_percent": 64.0,
+      "mean_visits_per_restaurant": [
+        22.38,
+        14.92,
+        40.27,
+        298.3,
+        79.67,
+        61.68,
+        26.19,
+        46.44,
+        33.48,
+        106.67
+      ]
+    },
+    "UCB1 (c=1.0)": {
+      "total_satisfaction_mean": 528.3091704670433,
+      "total_satisfaction_std": 2.19856403336782,
+      "cumulative_regret": 114.09360000000014,
+      "optimal_restaurant_percent": 35.0,
+      "mean_visits_per_restaurant": [
+        31.68,
+        22.43,
+        51.58,
+        214.96,
+        88.35,
+        72.14,
+        36.3,
+        57.99,
+        44.53,
+        110.04
+      ]
+    },
+    "Pure Random (Baseline)": {
+      "total_satisfaction_mean": 459.9763410443276,
+      "total_satisfaction_std": 5.0741331040070845,
+      "cumulative_regret": 182.42940000000027,
+      "optimal_restaurant_percent": 12.0,
+      "mean_visits_per_restaurant": [
+        74.75,
+        72.45,
+        73.57,
+        73.19,
+        71.12,
+        74.25,
+        71.72,
+        72.99,
+        72.39,
+        73.57
+      ]
+    }
+  }
+}

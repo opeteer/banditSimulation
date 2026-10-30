@@ -1,0 +1,87 @@
+{
+  "case": "Kasus 10 Restoran Makan (10 Tahun = 7.300 Sesi)",
+  "years": 10,
+  "days_total": 3650,
+  "meals_total": 7300,
+  "n_runs": 100,
+  "c_sqrt2": 1.4142135623730951,
+  "optimal_restaurant": {
+    "name": "RM Padang Minang Asli [TERBAIK]",
+    "mean": 0.88,
+    "category": "Rumah Makan Padang"
+  },
+  "algorithms": {
+    "Thompson Sampling (Bayesian)": {
+      "total_satisfaction_mean": 6368.329956921308,
+      "total_satisfaction_std": 6.170057793476696,
+      "cumulative_regret": 55.10690000000005,
+      "optimal_restaurant_percent": 100.0,
+      "mean_visits_per_restaurant": [
+        11.68,
+        7.63,
+        22.85,
+        7013.23,
+        56.28,
+        38.02,
+        13.78,
+        27.18,
+        17.9,
+        91.45
+      ]
+    },
+    "UCB1 (c=1.0)": {
+      "total_satisfaction_mean": 6000.9191061510855,
+      "total_satisfaction_std": 6.912319005131263,
+      "cumulative_regret": 422.71660000000463,
+      "optimal_restaurant_percent": 89.0,
+      "mean_visits_per_restaurant": [
+        83.67,
+        51.79,
+        175.43,
+        5075.86,
+        451.5,
+        310.47,
+        102.51,
+        214.13,
+        137.38,
+        697.26
+      ]
+    },
+    "UCB1 (c=\u221a2 \u2248 1.41)": {
+      "total_satisfaction_mean": 5764.220893002972,
+      "total_satisfaction_std": 8.061131216897794,
+      "cumulative_regret": 659.0592000000032,
+      "optimal_restaurant_percent": 78.0,
+      "mean_visits_per_restaurant": [
+        145.67,
+        91.57,
+        284.22,
+        3979.1,
+        648.37,
+        470.8,
+        172.96,
+        337.55,
+        229.84,
+        939.92
+      ]
+    },
+    "Pure Random (Baseline)": {
+      "total_satisfaction_mean": 4599.724226507524,
+      "total_satisfaction_std": 14.499444778044728,
+      "cumulative_regret": 1823.821399999978,
+      "optimal_restaurant_percent": 11.0,
+      "mean_visits_per_restaurant": [
+        732.08,
+        727.01,
+        733.52,
+        730.14,
+        729.11,
+        731.53,
+        727.48,
+        727.91,
+        728.87,
+        732.35
+      ]
+    }
+  }
+}
